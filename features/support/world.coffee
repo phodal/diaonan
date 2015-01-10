@@ -1,7 +1,7 @@
 env = require("../../qest-app.js")
 zombie = require('zombie')
 
-opts = 
+opts =
   port: 9777
   mqtt: 9778
   redisHost: "127.0.0.1"
@@ -16,7 +16,7 @@ browser = new zombie.Browser(site: "http://localhost:#{opts.port}", headers: { "
 { HttpJsonClient } = require("./clients/http_json")
 { HttpTxtClient } = require("./clients/http_txt")
 
-protocols = 
+protocols =
   HTTP: HttpClient
   HTTP_JSON: HttpJsonClient
   HTTP_TXT: HttpTxtClient
