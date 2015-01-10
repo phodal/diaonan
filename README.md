@@ -5,13 +5,31 @@
 Status](https://travis-ci.org/mokcy/diaonan.png)](https://travis-ci.org/mokcy/diaonan)
 
 
-## Thanks
+``吊兰``是一个在线的物联网测试平台，你可以用他来测试你的物联网设备。网页上创建一个节点，然后你就可以用MQTT,REST,CoAP来测试你的硬件代码。REST示例如下所示:
 
-This work would not have been possible without the support
-of the University of Bologna, which funded my Ph.D. program.
-Moreover I would like to thank my professors, Giovanni
-Emanuele Corazza and Alessandro Vanelli-Coralli for the support
-and the feedbacks.
+    $ curl -X PUT -d '{ "dream": 1 }' \
+    -H "Content-Type: application/json" \
+    http://mqtt.phodal.com/topics/lettuce
+
+    $ curl http://mqtt.phodal.com/topics/lettuce
+    { "dream": 1 }
+
+Mosquitto示例
+
+    mosquitto_pub -h mqtt.phodal.com -d -t lettuce -m "Hello, MQTT. This is my first message."
+
+Python MQTT示例:
+
+    import mosquitto
+    mqttc = mosquitto.Mosquitto("python_pub")
+    mqttc.connect("mqtt.phodal.com", 1883, 60, True)
+
+    mqttc.publish("lettuce", "Hello, World!")
+
+    让我们用MQTT, REST, CoAP做一些有趣的事!
+
+Arduino示例见[https://gist.github.com/phodal/fd1be9ea3cc13cd48ffa](https://gist.github.com/phodal/fd1be9ea3cc13cd48ffa)
+
 
 ## License
 
