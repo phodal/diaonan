@@ -11,7 +11,7 @@ runExternal = (command, callback) ->
   child.on('exit', callback) if callback?
 
 launchSpec = (args, callback) ->
-  runExternal "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script #{args}", callback
+  runExternal "NODE_ENV=test ./node_modules/.bin/mocha --compilers coffee:coffee-script/register #{args}", callback
 
 task "spec", ->
   launchSpec "--recursive test", (result) ->

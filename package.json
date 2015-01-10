@@ -16,7 +16,7 @@
     "MIT"
   ],
   "dependencies": {
-    "coffee-script": "~1.3.3",
+    "coffee-script": "~1.8.0",
     "optimist": "= 0.3.4",
     "express": "~3.0.1",
     "hbs": "= 2.8.0",
@@ -29,12 +29,11 @@
     "mincer": "1.1.0",
     "less": "＝ 1.3.3",
     "ascoltatori": "0.18.0",
-    "async": "~0.1.22"
+    "async": "~0.9.0"
   },
   "devDependencies": {
     "cucumber": "= 0.4.7",
     "zombie": "= 1.4.0",
-    "underscore.string": "2.4.0",
     "mocha": "= 2.1.0",
     "sinon": "= 1.3.4",
     "chai": "= 1.1.0",
