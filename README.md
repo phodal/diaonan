@@ -2,7 +2,7 @@
 # QEST
 
 [![Build
-Status](https://travis-ci.org/mcollina/qest.png)](https://travis-ci.org/mcollina/qest)
+Status](https://travis-ci.org/mokcy/diaonan.png)](https://travis-ci.org/mokcy/diaonan)
 
 Hello geeks!
 
