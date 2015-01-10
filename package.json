@@ -17,6 +17,7 @@
   ],
   "dependencies": {
     "coffee-script": "~1.8.0",
+    "coap": "0.8.0",
     "optimist": "= 0.3.4",
     "express": "~3.0.1",
     "hbs": "= 2.8.0",

@@ -1,4 +1,5 @@
-var EventEmitter, RedisStore, app, argv, ascoltatori, configure, express, fs, hbs, http, load, mqtt, optimist, optionParser, path, redis, setup, setupAscoltatore, start;
+var EventEmitter, RedisStore, app, argv, ascoltatori, configure, express, fs, hbs, http, load, mqtt, optimist,
+	optionParser, path, redis, setup, setupAscoltatore, start, coap;
 
 optimist = require('optimist');
 
@@ -7,6 +8,8 @@ express = require('express');
 path = require('path');
 
 fs = require('fs');
+
+coap = require('coap');
 
 hbs = require('hbs');
 
@@ -28,15 +31,18 @@ app.redis = {};
 
 module.exports.configure = configure = function () {
 	var io;
+
 	app.configure('development', function () {
 		return app.use(express.errorHandler({
 			dumpExceptions: true,
 			showStack: true
 		}));
 	});
+
 	app.configure('production', function () {
 		return app.use(express.errorHandler());
 	});
+
 	app.configure(function () {
 		app.set('views', __dirname + '/app/views');
 		app.set('view engine', 'hbs');
@@ -54,6 +60,7 @@ module.exports.configure = configure = function () {
 		app.use(app.router);
 		return app.use(express["static"](__dirname + '/public'));
 	});
+
 	io = app.io = require('socket.io').listen(http);
 	io.configure('production', function () {
 		io.enable('browser client minification');
@@ -64,6 +71,7 @@ module.exports.configure = configure = function () {
 	io.configure('test', function () {
 		return io.set('log level', 0);
 	});
+
 	load("models");
 	load("controllers");
 	return load("helpers");
@@ -94,17 +102,20 @@ load = function (key) {
 optionParser = optimist
 	["default"]('port', 3000)
 	["default"]('mqtt', 1883)
+	["default"]('coap', 5683)
 	["default"]('redis-port', 6379)
 	["default"]('redis-host', '127.0.0.1')
 	["default"]('redis-db', 0)
-	.usage("Usage: $0 [-p WEB-PORT] [-m MQTT-PORT] [-rp REDIS-PORT] [-rh REDIS-HOST]")
+	.usage("Usage: $0 [-p WEB-PORT] [-m MQTT-PORT][-c COAP-PORT] [-rp REDIS-PORT] [-rh REDIS-HOST]")
 	.alias('port', 'p')
 	.alias('mqtt', 'm')
+	.alias('coap', 'c')
 	.alias('redis-port', 'rp')
 	.alias('redis-host', 'rh')
 	.alias('redis-db', 'rd')
 	.describe('port', 'The port the web server will listen to')
 	.describe('mqtt', 'The port the mqtt server will listen to')
+	.describe('coap', 'The port the coap server will listen to')
 	.describe('redis-port', 'The port of the redis server')
 	.describe('redis-host', 'The host of the redis server')
 	.boolean("help")
@@ -135,17 +146,19 @@ module.exports.setup = setup = function (opts) {
 	return setupAscoltatore(opts);
 };
 
-start = module.exports.start = function (opts, cb) {
+start = module.exports.start = function (opts, callback) {
 	var countDone, done;
-	if (opts == null) {
+	if (opts === null || opts === undefined) {
 		opts = {};
 	}
-	if (cb == null) {
-		cb = function () {
+	if (callback === null || callback === undefined) {
+		callback = function () {
 		};
 	}
+	
 	opts.port || (opts.port = argv.port);
 	opts.mqtt || (opts.mqtt = argv.mqtt);
+	opts.coap || (opts.coap = argv.coap);
 	opts.redisPort || (opts.redisPort = argv['redis-port']);
 	opts.redisHost || (opts.redisHost = argv['redis-host']);
 	opts.redisDB || (opts.redisDB = argv['redis-db']);
@@ -153,22 +166,28 @@ start = module.exports.start = function (opts, cb) {
 		optionParser.showHelp();
 		return 1;
 	}
+
 	setup({
 		port: opts.redisPort,
 		host: opts.redisHost,
 		db: opts.redisDB
 	});
+
 	configure();
 	countDone = 0;
 	done = function () {
 		if (countDone++ === 2) {
-			return cb();
+			return callback();
 		}
 	};
+
 	http.listen(opts.port, function () {
 		console.log("mqtt-rest web server listening on port %d in %s mode", opts.port, app.settings.env);
 		return done();
 	});
+
+	coap.createServer({});
+
 	mqtt.createServer(app.controllers.mqtt_api).listen(opts.mqtt, function () {
 		console.log("mqtt-rest mqtt server listening on port %d in %s mode", opts.mqtt, app.settings.env);
 		return done();
