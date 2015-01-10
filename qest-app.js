@@ -91,7 +91,24 @@ load = function (key) {
 	return _results;
 };
 
-optionParser = optimist["default"]('port', 3000)["default"]('mqtt', 1883)["default"]('redis-port', 6379)["default"]('redis-host', '127.0.0.1')["default"]('redis-db', 0).usage("Usage: $0 [-p WEB-PORT] [-m MQTT-PORT] [-rp REDIS-PORT] [-rh REDIS-HOST]").alias('port', 'p').alias('mqtt', 'm').alias('redis-port', 'rp').alias('redis-host', 'rh').alias('redis-db', 'rd').describe('port', 'The port the web server will listen to').describe('mqtt', 'The port the mqtt server will listen to').describe('redis-port', 'The port of the redis server').describe('redis-host', 'The host of the redis server').boolean("help").describe("help", "This help");
+optionParser = optimist
+	["default"]('port', 3000)
+	["default"]('mqtt', 1883)
+	["default"]('redis-port', 6379)
+	["default"]('redis-host', '127.0.0.1')
+	["default"]('redis-db', 0)
+	.usage("Usage: $0 [-p WEB-PORT] [-m MQTT-PORT] [-rp REDIS-PORT] [-rh REDIS-HOST]")
+	.alias('port', 'p')
+	.alias('mqtt', 'm')
+	.alias('redis-port', 'rp')
+	.alias('redis-host', 'rh')
+	.alias('redis-db', 'rd')
+	.describe('port', 'The port the web server will listen to')
+	.describe('mqtt', 'The port the mqtt server will listen to')
+	.describe('redis-port', 'The port of the redis server')
+	.describe('redis-host', 'The host of the redis server')
+	.boolean("help")
+	.describe("help", "This help");
 
 argv = optionParser.argv;
 
