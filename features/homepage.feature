@@ -4,9 +4,9 @@ Feature: Home page
 
   Scenario: QEST name
     When I visit "/"
-    Then I should see "QEST"
+    Then I should see "吊兰"
 
   Scenario: QEST title
     When I visit "/"
-    Then I should see the title "QEST - The Internet of Things broker that loves devices and developers"
+    Then I should see the title "MQTT协议,CoAP协议,WebSocket,物联网协议在线测试"
 
