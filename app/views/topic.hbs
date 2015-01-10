@@ -1,0 +1,35 @@
+<div class="page-header">
+  <h1>节点: {{topic}}</h1>
+</div>
+<div class="row">
+  <div class="span12">
+    <form class="form-horizontal">
+      <div id="payload-field" class="control-group">
+        <label class="control-label" for="payload"> 负载</label>
+        <div class="controls">
+          <textarea id="payload" name="payload" class="span8" rows="10" readonly="true"></textarea>
+          <span id="payload-error" class="help-inline hide">无法解析成JSON</span>
+        </div>
+      </div>
+      <div class="control-group">
+        <label class="control-label" for="is-json">验证JSON</label>
+        <div class="controls">
+          <input id="validate" type="checkbox" disabled>
+        </div>
+      </div>
+      <div class="control-group">
+        <div class="controls">
+          <input id="update" type="submit" class="btn btn-success" value="Update"></input>
+          <input id="edit" type="submit" class="btn btn-primary" value="Edit"></input>
+          <input id="cancel" type="submit" class="btn btn-danger" value="Cancel"></input>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+{{ js "topics.js" }}
+<script type="text/javascript">
+  setupTopic("{{topic}}");
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MQTT协议,CoAP协议,物联网协议在线测试</title>
+  {{css "main.css"}}
+  <!--[if lt IE 9]>
+  {{js "html5-shiv.js"}}
+  <![endif]-->
+  {{js "bootstrap.js"}}
+  <meta name="Description" content="MQTT协议,CoAP协议,物联网协议在线测试">
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="/">吊兰</a>
+        <div class="nav-collapse collapse">
+          <ul class="nav">
+            <li><a href="http://www.phodal.com/about" target="blank">About Me</a></li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+
+    <div class="content">
+      {{{body}}}
+    </div>
+
+    <footer>
+    <p>&copy; <a href="http://www.phodal.com" target="blank">Phodal Huang</a> 2015</p>
+    </footer>
+
+  </div> <!-- /container -->
+
+  {{#notest}}
+
+  <script type="text/javascript">
+
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-35116605-1']);
+    _gaq.push(['_setDomainName', 'qest.me']);
+    _gaq.push(['_setAllowLinker', true]);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+     var ga = document.createElement('script');
+     ga.type = 'text/javascript'; ga.async = true;
+     ga.src = ('https:' ==
+       document.location.protocol ? 'https://ssl' :
+       'http://www') + '.google-analytics.com/ga.js';
+     var s =
+     document.getElementsByTagName('script')[0];
+     s.parentNode.insertBefore(ga, s);
+     })();
+
+  </script>
+
+  {{/notest}}
+</body>
+</html>
+
