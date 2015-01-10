@@ -49,10 +49,24 @@
     $ curl -X PUT -d '{ "dream": 1 }' \
     -H "Content-Type: application/json" \
     http://mqtt.phodal.com/topics/lettuce
+
     $ curl http://mqtt.phodal.com/topics/lettuce
     { "dream": 1 }
 
-让我们用MQTT, REST, CoAP做一些有趣的事!
+Mosquitto示例
+
+    mosquitto_pub -h mqtt.phodal.com -d -t lettuce -m "Hello, MQTT. This is my first message."
+
+Python MQTT示例:
+
+    import mosquitto
+    mqttc = mosquitto.Mosquitto("python_pub")
+    mqttc.connect("mqtt.phodal.com", 1883, 60, True)
+
+    mqttc.publish("lettuce", "Hello, World!")
+
+    让我们用MQTT, REST, CoAP做一些有趣的事!
+
 {{/markdown}}
   </div>
 
