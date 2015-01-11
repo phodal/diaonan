@@ -3,7 +3,7 @@
 <div class="jumbo">
   <div class="row">
     <div class="span1"></div>
-    <div class="span4">
+    <div class="span4 logo">
       <h1>吊兰</h1>
         <h3>让我们创造、连接一切的节点。</h3>
     </div>
@@ -15,27 +15,20 @@
           <input type="submit" class="btn btn-success" value="GO!">
         </div>
       </form>
+        <h2>最近的节点</h2>
+        {{#if topics.length }}
+            <ul>
+                {{#each topics}}
+                    <li><a href="/topics/{{this}}">{{this}}</a></li>
+                {{/each}}
+            </ul>
+        {{else}}
+            <p>
+                没有节点，让我们创建新的节点!
+            </p>
+        {{/if}}
     </div>
-  </div>
-  <div class="row">
-    <div class="span1"><br></div>
-    <div class="span6">
-      <div class="visible-desktop">
-      </div>
-    </div>
-    <div class="span4">
-      <h2>最近的节点</h2>
-      {{#if topics.length }}
-        <ul>
-        {{#each topics}}
-          <li><a href="/topics/{{this}}">{{this}}</a></li>
-        {{/each}}
-        </ul>
-      {{else}}
-      <p>
-        没有节点，让我们创建新的节点!
-      </p>
-      {{/if}}
+
     </div>
   </div>
 </div>
