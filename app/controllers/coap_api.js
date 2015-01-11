@@ -6,7 +6,6 @@ module.exports = function (app) {
 	return function (req, res) {
 		console.log(req.method, req.options);
 		var handlerGet = function () {
-			console.log(/^\/topics\/(.+)$/.exec(req.url));
 			if (/^\/topics\/(.+)$/.exec(req.url) === null){
 				res.code = '4.04';
 				res.end({error: 4.04});
@@ -14,7 +13,7 @@ module.exports = function (app) {
 			}
 			var topic = /^\/topics\/(.+)$/.exec(req.url)[1];
 			return Data.find(topic, function (err, data) {
-				var e, type;
+				var e;
 				if (err !== null) {
 					res.code = '4.04';
 					res.end({error: 4.04});
@@ -35,15 +34,22 @@ module.exports = function (app) {
 		var handPost = function () {
 			function parse_buffer(req) {
 				'use strict';
-				var block_save = [], result =[];
-				block_save.push({payload:req.payload.toString()});
+				var results, block =[];
+				var payload = req.payload.toString();
+				try {
+					payload = JSON.parse(payload);
+				} catch (e) {
+					console.log(payload);
+				}
+				results = {payload: payload};
 				_.each(req.options, function (option) {
 					if (/^Block([a-z0-9]{1,})$/.test(option.name)) {
-						result.push(_.values(option).toString().split(',')[1]);
+						block.push(_.values(option).toString().split(',')[1]);
 					}
 				});
-				block_save.push({"block": result});
-				return block_save;
+
+				results = _.extend(results, {block: block});
+				return results;
 			}
 
 			if (/^\/topics\/(.+)$/.exec(req.url) === null){

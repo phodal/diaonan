@@ -65,9 +65,14 @@ Python MQTT示例:
 
     mqttc.publish("lettuce", "Hello, World!")
 
-CoAP示例:
+CoAP GET示例:
 
-    coap-client -e "0" -m put coap://mqtt.phodal.com/topics/
+    coap-client -m get coap://127.0.0.1:5683/topics/zero
+
+CoAP POST示例
+
+    echo -n 'hello world' | coap post coap://localhost/topics/zero
+    echo -n '{"lettuce": 123}' | coap post coap://localhost/topics/zero
 
 让我们用MQTT, REST, CoAP做一些有趣的事!
 
