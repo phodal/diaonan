@@ -44,7 +44,7 @@ exports.World = function(callback) {
   this.clients = {};
   this.getClient = (function(_this) {
     return function(protocol, name, callback) {
-      if (_this.clients[name] != null) {
+      if (_this.clients[name] != null || _this.clients[name] != undefined) {
         return callback(_this.clients[name]);
       } else {
         return protocols[protocol].build(_this.opts, function(client) {
