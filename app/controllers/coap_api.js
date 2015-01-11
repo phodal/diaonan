@@ -8,8 +8,7 @@ module.exports = function (app) {
 		var handlerGet = function () {
 			if (/^\/topics\/(.+)$/.exec(req.url) === null){
 				res.code = '4.04';
-				res.end({error: 4.04, message: "not found"});
-				return;
+				return res.end(JSON.stringify({error: 4.04, message: "not found"}));
 			}
 
 			var topic = /^\/topics\/(.+)$/.exec(req.url)[1];
@@ -18,16 +17,18 @@ module.exports = function (app) {
 				console.log(data.value);
 				if (err !== null) {
 					res.code = '4.04';
-					res.end({error: 4.04});
+					return res.end(JSON.stringify({error: 4.04}));
 				} else {
 					try {
 						res.code = '2.05';
-						res.end(data.value);
+						res.end(JSON.stringify(data.value));
+						return;
 					} catch (_error) {
 						e = _error;
 						console.log(e);
 						res.code = '2.06';
-						res.end({error: 4.04, message: e});
+						res.end(JSON.stringify({error: 4.04, message: e}));
+						return;
 					}
 				}
 			});
@@ -56,19 +57,20 @@ module.exports = function (app) {
 
 			if (/^\/topics\/(.+)$/.exec(req.url) === null){
 				res.code = '4.04';
-				res.end({error: 4.04, message: "no permisssion"});
+				res.end(JSON.stringify({error: 4.04, message: "no permisssion"}));
 				return;
 			}
 			var topic = /^\/topics\/(.+)$/.exec(req.url)[1];
 			Data.findOrCreate(topic, parse_buffer(req));
 			res.code = '2.06';
-			res.end({message: parse_buffer(req)});
+			res.end(JSON.stringify({message: parse_buffer(req)}));
 		};
 
 		var other = function () {
 			res.code = '4.04';
-			res.end({error: "not support"})
+			res.end(JSON.stringify({error: "not support"}));
 		};
+
 		switch (req.method) {
 			case "GET":
 				handlerGet();
@@ -81,7 +83,5 @@ module.exports = function (app) {
 				other();
 				break;
 		}
-
-		return ;
 	};
 };
