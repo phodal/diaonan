@@ -67,12 +67,12 @@ Python MQTT示例:
 
 CoAP GET示例:
 
-    coap-client -m get coap://http://mqtt.phodal.com/:5683/topics/zero
+    coap-client -m get coap://mqtt.phodal.com:5683/topics/zero
 
 CoAP POST示例
 
-    echo -n 'hello world' | coap post coap://http://mqtt.phodal.com//topics/zero
-    echo -n '{"lettuce": 123}' | coap post coap://http://mqtt.phodal.com/topics/zero
+    echo -n 'hello world' | coap post coap://mqtt.phodal.com/topics/zero
+    echo -n '{"lettuce": 123}' | coap post coap://mqtt.phodal.com/topics/zero
 
 让我们用MQTT, REST, CoAP做一些有趣的事!
 
