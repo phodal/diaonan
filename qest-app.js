@@ -182,17 +182,17 @@ start = module.exports.start = function (opts, callback) {
 	};
 
 	http.listen(opts.port, function () {
-		console.log("mqtt-rest web server listening on port %d in %s mode", opts.port, app.settings.env);
+		console.log("oap-mqtt-rest web server listening on port %d in %s mode", opts.port, app.settings.env);
 		return done();
 	});
 
 	coap.createServer(app.controllers.coap_api).listen(opts.coap, function () {
-		console.log("mqtt-rest mqtt server listening on port %d in %s mode", opts.coap, app.settings.env);
+		console.log("coap-mqtt-rest coap server listening on port %d in %s mode", opts.coap, app.settings.env);
 		return done();
 	});
 
 	mqtt.createServer(app.controllers.mqtt_api).listen(opts.mqtt, function () {
-		console.log("mqtt-rest mqtt server listening on port %d in %s mode", opts.mqtt, app.settings.env);
+		console.log("oap-mqtt-rest mqtt server listening on port %d in %s mode", opts.mqtt, app.settings.env);
 		return done();
 	});
 	return app;

@@ -8,12 +8,14 @@ module.exports = function (app) {
 		var handlerGet = function () {
 			if (/^\/topics\/(.+)$/.exec(req.url) === null){
 				res.code = '4.04';
-				res.end({error: 4.04});
+				res.end({error: 4.04, message: "not found"});
 				return;
 			}
+
 			var topic = /^\/topics\/(.+)$/.exec(req.url)[1];
 			return Data.find(topic, function (err, data) {
 				var e;
+				console.log(data.value);
 				if (err !== null) {
 					res.code = '4.04';
 					res.end({error: 4.04});
@@ -63,6 +65,10 @@ module.exports = function (app) {
 			res.end({message: parse_buffer(req)});
 		};
 
+		var other = function () {
+			res.code = '4.04';
+			res.end({error: "not support"})
+		};
 		switch (req.method) {
 			case "GET":
 				handlerGet();
@@ -70,6 +76,9 @@ module.exports = function (app) {
 			case "PUT":
 			case "POST":
 				handPost();
+				break;
+			default:
+				other();
 				break;
 		}
 
