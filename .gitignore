@@ -4,3 +4,4 @@ node_modules/*
 *.rdb
 public/stylesheets/*.css
 npm-debug.log
+log
