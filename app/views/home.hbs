@@ -4,7 +4,7 @@
   <div class="row">
     <div class="span1"></div>
     <div class="span4 logo">
-        <h3>让我们创造、连接一切的节点。</h3>
+        <h3 itemprop="headline">让我们创造、连接一切的节点。</h3>
     </div>
     <div class="span4">
       <form id="go" method="get">
@@ -32,11 +32,15 @@
   </div>
 </div>
 
-<div class="row">
+<div class="row" itemprop="releaseNotes">
   <div class="span6">
     <h2>创建</h2>
+
+<p ><spn itemprop="about"></spn><strong>吊兰</strong>是一个在线的物联网测试平台，你可以用他来测试你的物联网设备。</span>网页上创建一个节点，然后你就可以用<span item="keywords">MQTT,REST,CoAP,WebSocket</span>来测试你的硬件代码</p>
+<div itemprop="softwareHelp">
 {{#markdown}}
-``吊兰``是一个在线的物联网测试平台，你可以用他来测试你的物联网设备。网页上创建一个节点，然后你就可以用MQTT,REST,CoAP来测试你的硬件代码。REST示例如下所示:
+
+REST示例如下所示:
 
     $ curl -X PUT -d '{ "dream": 1 }' \
     -H "Content-Type: application/json" \
@@ -71,11 +75,13 @@ CoAP POST示例
 Arduino示例见[https://gist.github.com/phodal/fd1be9ea3cc13cd48ffa](https://gist.github.com/phodal/fd1be9ea3cc13cd48ffa)
 
 {{/markdown}}
+</div>
   </div>
 
   <div class="span6">
 
     <h2>More</h2>
+
 {{#markdown}}
 
 ###协议支持###
@@ -84,8 +90,27 @@ Arduino示例见[https://gist.github.com/phodal/fd1be9ea3cc13cd48ffa](https://gi
  - HTTP GET/POST
  - WebSocket
  - CoAP
+{{/markdown}}
 
+<div itemprop="device">
+<h3>支持设备</h3>
+{{#markdown}}
 
+    - Arduino
+    - 8051/51 Family
+    - Raspberry Pi
+    - PCduino
+    - STM32
+    - ARM
+    - Android Devices
+    - iOS Devices
+    - Windows Phone Devices
+    - ...
+
+{{/markdown}}
+</div>
+
+{{#markdown}}
 ###开源物联网项目
 
 [最小物联网系统HTTP版(PHP)](https://github.com/phodal/iot)
