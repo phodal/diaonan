@@ -1,4 +1,3 @@
-
 # 吊兰
 
 [![Build
@@ -6,6 +5,16 @@ Status](https://travis-ci.org/mokcy/diaonan.png)](https://travis-ci.org/mokcy/di
 
 
 ``吊兰``是一个在线的物联网测试平台，你可以用他来测试你的物联网设备。网页上创建一个节点，然后你就可以用MQTT,REST,CoAP来测试你的硬件代码。REST示例如下所示:
+
+
+##源码 
+
+``Coming Soon``
+
+##简介 
+
+REST示例如下所示:
+>>>>>>> first commit
 
     $ curl -X PUT -d '{ "dream": 1 }' \
     -H "Content-Type: application/json" \
@@ -26,7 +35,16 @@ Python MQTT示例:
 
     mqttc.publish("lettuce", "Hello, World!")
 
-    让我们用MQTT, REST, CoAP做一些有趣的事!
+CoAP GET示例:
+
+    coap-client -m get coap://mqtt.phodal.com:5683/topics/zero
+
+CoAP POST示例
+
+    echo -n 'hello world' | coap post coap://mqtt.phodal.com/topics/zero
+    echo -n '{"lettuce": 123}' | coap post coap://mqtt.phodal.com/topics/zero
+
+让我们用MQTT, REST, CoAP做一些有趣的事!
 
 Arduino示例见[https://gist.github.com/phodal/fd1be9ea3cc13cd48ffa](https://gist.github.com/phodal/fd1be9ea3cc13cd48ffa)
 
@@ -55,3 +73,25 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
+=======
+###协议支持###
+
+ - MQTT
+ - HTTP GET/POST
+ - WebSocket
+ - CoAP
+
+
+###支持设备
+
+
+- Arduino
+- 8051/51 Family
+- Raspberry Pi
+- PCduino
+- STM32
+- ARM
+- Android Devices
+- iOS Devices
+- Windows Phone Devices
+- ...
