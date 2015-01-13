@@ -70,9 +70,40 @@ CoAP POST示例
     echo -n 'hello world' | coap post coap://mqtt.phodal.com/topics/zero
     echo -n '{"lettuce": 123}' | coap post coap://mqtt.phodal.com/topics/zero
 
-让我们用MQTT, REST, CoAP做一些有趣的事!
+Arduino MQTT示例
 
-Arduino示例见[https://gist.github.com/phodal/fd1be9ea3cc13cd48ffa](https://gist.github.com/phodal/fd1be9ea3cc13cd48ffa)
+    #include <SPI.h>
+    #include <Ethernet.h>
+    #include <PubSubClient.h>
+
+    byte mac[]    = {  0xDE, 0xED, 0xBA, 0xFE, 0xFE, 0xED };
+    byte server[] = { 192, 168, 168, 78 }; // MQTT服务地址
+    byte ip[]     = { 192, 168, 168, 250 }; // 设备IP
+
+    void callback(char* topic, byte* payload, unsigned int length) {
+    // handle message arrived
+    }
+
+    EthernetClient ethClient;
+    PubSubClient client(server, 1883, callback, ethClient);
+
+    void setup()
+    {
+        Ethernet.begin(mac, ip);
+        if (client.connect("arduinoClient")) {
+            client.publish("outTopic","hello world");
+            client.subscribe("inTopic");
+        }
+    }
+
+    void loop()
+    {
+        client.loop();
+    }
+
+详细见: [MQTT协议 Arduino示例](http://www.phodal.com/blog/mqtt-arduino-hello-world/)
+
+让我们用MQTT, REST, CoAP做一些有趣的事!
 
 {{/markdown}}
 </div>
