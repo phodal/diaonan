@@ -19,15 +19,3 @@ task "spec", ->
 
 task "spec:ci", ->
   launchSpec "--watch --recursive test"
-
-task "features", ->
-  runExternal "NODE_ENV=test ./node_modules/.bin/cucumber.js -f pretty -t ~@wip", (result) ->
-    if result != 0
-      console.log "FAIL: scenarios should not fail"
-    process.exit(result)
-
-task "features:wip", ->
-  runExternal "NODE_ENV=test ./node_modules/.bin/cucumber.js -t @wip", (result) ->
-    if result == 0
-      console.log "FAIL: wip scenarios should fail"
-      process.exit(1)
