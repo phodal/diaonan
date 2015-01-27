@@ -1,20 +1,12 @@
 # 吊兰
 
-[![Build
-Status](https://travis-ci.org/mokcy/diaonan.png)](https://travis-ci.org/mokcy/diaonan)
-
+在线测试: [http://mqtt.phodal.com](http://mqtt.phodal.com)
 
 ``吊兰``是一个在线的物联网测试平台，你可以用他来测试你的物联网设备。网页上创建一个节点，然后你就可以用MQTT,REST,CoAP来测试你的硬件代码。REST示例如下所示:
-
-
-##源码 
-
-``Coming Soon``
 
 ##简介 
 
 REST示例如下所示:
->>>>>>> first commit
 
     $ curl -X PUT -d '{ "dream": 1 }' \
     -H "Content-Type: application/json" \
@@ -48,9 +40,53 @@ CoAP POST示例
 
 Arduino示例见[https://gist.github.com/phodal/fd1be9ea3cc13cd48ffa](https://gist.github.com/phodal/fd1be9ea3cc13cd48ffa)
 
+###协议支持###
+
+ - MQTT
+ - HTTP GET/POST
+ - WebSocket
+ - CoAP
+
+
+###支持设备
+
+
+- Arduino
+- 8051/51 Family
+- Raspberry Pi
+- PCduino
+- STM32
+- ARM
+- Android Devices
+- iOS Devices
+- Windows Phone Devices
+- ...
+
+##其他相关
+
+###《[一步步搭建物联网系统](http://designiot.phodal.com/)》
+
+**在线查看**:[一步步搭建物联网系统](http://designiot.phodal.com/)
+
+图灵-电子书版[一步步搭建物联网系统](http://www.ituring.com.cn/book/1580)
+
+[IOT CoAP](https://github.com/phodal/iot-coap)
+
+[物联网资料合集](https://github.com/phodal/collection-iot)
+
+[最小物联网系统](https://github.com/phodal/iot)
+
+[吊兰-MQTT协议,CoAP协议,WebSocket,物联网协议在线测试](http://mqtt.phodal.com)
+
+###交流
+
+QQ群：348100589
+
+网站解答: [http://qa.phodal.com](http://qa.phodal.com)
 
 ## License
 
+Copyright (c) 2015 Phodal Fengda,  [http://www.phodal.com](http://www.phodal.com)
 Copyright (c) 2012 Matteo Collina, http://matteocollina.com
 
 Permission is hereby granted, free of charge, to any person
@@ -73,25 +109,3 @@ HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY,
 WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
 FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 OTHER DEALINGS IN THE SOFTWARE.
-=======
-###协议支持###
-
- - MQTT
- - HTTP GET/POST
- - WebSocket
- - CoAP
-
-
-###支持设备
-
-
-- Arduino
-- 8051/51 Family
-- Raspberry Pi
-- PCduino
-- STM32
-- ARM
-- Android Devices
-- iOS Devices
-- Windows Phone Devices
-- ...
