@@ -16,7 +16,6 @@
     "MIT"
   ],
   "dependencies": {
-    "coffee-script": "~1.8.0",
     "coap": "0.8.0",
     "optimist": "= 0.3.4",
     "express": "~3.0.1",
@@ -42,6 +41,6 @@
     "request": "= 2.10.0"
   },
   "scripts": {
-    "test": "./node_modules/.bin/cake spec"
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --recursive test"
   }
 }
