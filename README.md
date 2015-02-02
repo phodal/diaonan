@@ -6,6 +6,24 @@
 
 ``吊兰``是一个在线的物联网测试平台，你可以用他来测试你的物联网设备。网页上创建一个节点，然后你就可以用MQTT,REST,CoAP来测试你的硬件代码。REST示例如下所示:
 
+##安装
+
+1.安装redis
+
+    sudo apt-get install redis-server
+
+or 
+
+    sudo yum install redis-server
+
+2.安装依赖    
+
+    sudo npm install
+
+3.Server
+
+    node diaonan.js    
+
 ##简介 
 
 REST示例如下所示:
