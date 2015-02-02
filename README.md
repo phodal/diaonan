@@ -103,6 +103,8 @@ QQ群：348100589
 
 ## License
 
+[待我代码编成，娶你为妻可好](http://www.xuntayizhan.com/person/ji-ke-ai-qing-zhi-er-shi-dai-wo-dai-ma-bian-cheng-qu-ni-wei-qi-ke-hao-wan/)
+
 Copyright (c) 2015 Phodal Fengda,  [http://www.phodal.com](http://www.phodal.com)
 
 Copyright (c) 2012 Matteo Collina, http://matteocollina.com
