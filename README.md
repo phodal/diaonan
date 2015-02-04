@@ -1,6 +1,7 @@
 # 吊兰
 
 [![Build Status](https://travis-ci.org/phodal/diaonan.svg?branch=master)](https://travis-ci.org/phodal/diaonan)
+[![Code Climate](https://codeclimate.com/github/phodal/diaonan/badges/gpa.svg)](https://codeclimate.com/github/phodal/diaonan)
 [![Test Coverage](https://codeclimate.com/github/phodal/diaonan/badges/coverage.svg)](https://codeclimate.com/github/phodal/diaonan)
 
 ``吊兰``是一个开源的物联网**平台**。
