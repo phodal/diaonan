@@ -1,6 +1,6 @@
 var async, config, env;
 
-env = require("../qest-app.js");
+env = require("../diaonan.js");
 
 async = require("async");
 
