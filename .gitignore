@@ -5,3 +5,4 @@ node_modules/*
 public/stylesheets/*.css
 npm-debug.log
 log
+coverage
