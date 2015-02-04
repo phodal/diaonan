@@ -5,3 +5,4 @@
 --growl
 --colors
 --globals s
+--require test/spec_helper
