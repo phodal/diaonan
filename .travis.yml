@@ -5,3 +5,4 @@ notifications:
     email: false
 services:
   - redis-server
+after_success: CODECLIMATE_REPO_TOKEN=779fe2fc997cafe9f035a6d2b41c6269d23f5449232c5386f9618966b311c917 codeclimate < lcov.info
