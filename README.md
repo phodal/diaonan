@@ -1,6 +1,7 @@
 # 吊兰
 
 [![Build Status](https://travis-ci.org/phodal/diaonan.svg?branch=master)](https://travis-ci.org/phodal/diaonan)
+[![Test Coverage](https://codeclimate.com/github/phodal/diaonan/badges/coverage.svg)](https://codeclimate.com/github/phodal/diaonan)
 
 ``吊兰``是一个开源的物联网**平台**。
 
@@ -27,7 +28,7 @@
 - Windows Phone Devices
 - ...
 
-##示例 
+##示例
 
 REST示例如下所示:
 
@@ -65,17 +66,17 @@ CoAP POST示例
 
     sudo apt-get install redis-server
 
-or 
+or
 
     sudo yum install redis-server
 
-2.安装nodejs依赖    
+2.安装nodejs依赖
 
     sudo npm install
 
 3.Server
 
-    node diaonan.js    
+    node diaonan.js
 
 ##其他相关
 
