@@ -70,7 +70,7 @@ module.exports = function (app) {
 		});
 		client.on('publish', function (packet) {
 			var error, payload;
-			payload = packet.payload;
+			payload = packet.payload.toString();
 			try {
 				payload = JSON.parse(payload);
 			} catch (_error) {
