@@ -23,7 +23,7 @@
             </ul>
         {{else}}
             <p>
-                没有节点，让我们创建新的节点!
+                没有节点，创建新的节点!
             </p>
         {{/if}}
     </div>
@@ -43,9 +43,7 @@
 
 REST示例如下所示:
 
-    $ curl -X PUT -d '{ "dream": 1 }' \
-    -H "Content-Type: application/json" \
-    http://mqtt.phodal.com/topics/lettuce
+    $ curl -X PUT -d '{ "dream": 1 }' -H "Content-Type: application/json" http://mqtt.phodal.com/topics/lettuce
 
     $ curl http://mqtt.phodal.com/topics/lettuce
     { "dream": 1 }
@@ -102,9 +100,7 @@ Arduino MQTT示例
         client.loop();
     }
 
-详细见: [MQTT协议 Arduino示例](http://www.phodal.com/blog/mqtt-arduino-hello-world/)
-
-让我们用MQTT, REST, CoAP做一些有趣的事!
+让我们用物联网做一些有趣的事!
 
 {{/markdown}}
 </div>
@@ -117,7 +113,7 @@ Arduino MQTT示例
 ###协议支持###
 
  - MQTT
- - HTTP GET/POST
+ - RESTful(HTTP GET/POST)
  - WebSocket
  - CoAP
 {{/markdown}}
@@ -141,6 +137,11 @@ Arduino MQTT示例
 </div>
 
 {{#markdown}}
+
+###APP
+
+[教你设计物联网](https://play.google.com/store/apps/details?id=com.phodal.designiot)
+
 ###开源物联网项目
 
 [最小物联网系统HTTP版(PHP)](https://github.com/phodal/iot)
