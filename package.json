@@ -16,7 +16,7 @@
     "MIT"
   ],
   "dependencies": {
-    "coap": "0.8.0",
+    "coap": "0.9.1",
     "optimist": "= 0.3.4",
     "express": "~3.0.1",
     "hbs": "= 2.8.0",
