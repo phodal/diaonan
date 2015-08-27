@@ -8,6 +8,13 @@
 
 在线Demo: [http://mqtt.phodal.com](http://mqtt.phodal.com)
 
+此项目不再``维护``: 请使用[Lan](https://github.com/phodal/lan)(Github: [https://github.com/phodal/lan](https://github.com/phodal/lan)) 用于产品环境。
+
+Lan构架
+
+![Lan架构](https://raw.githubusercontent.com/phodal/lan/master/docs/iot.jpg)
+
+
 ###APP: 教你设计物联网
 
 <a href="https://play.google.com/store/apps/details?id=com.phodal.designiot">
